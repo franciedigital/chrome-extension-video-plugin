@@ -23,6 +23,42 @@ Before you begin, ensure you have the following prerequisites installed:
    ```bash
    git clone https://github.com/franciedigital/chrome-extension-video-plugin.git
 
+   ```
+
 2. Install the required Python packages:
-    ```bash
-    pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Configuration
+
+Before running the API, make sure to configure your AWS credentials and specify your S3 bucket name in the `.env` file:
+
+```
+# AWS S3 credentials and bucket name
+AWS_ACCESS_KEY = 'your_access_key'
+AWS_SECRET_KEY = 'your_secret_key'
+S3_BUCKET_NAME = 'your_bucket_name'
+```
+
+### Usage
+
+Start the FastAPI application:
+
+```
+uvicorn main:app  --reload
+```
+
+Access the API at http://localhost:8000 using your preferred API client (e.g., Postman or cURL).
+
+Uploading a Video
+Endpoint: POST /api/upload-video/
+Request: Send a POST request with the video file as the request body.
+Response: The API will store the video in the specified S3 bucket and return the URL where the video is stored.
+
+Example cURL request:
+
+```
+curl -X POST -F "file=@path/to/video.mp4" http://localhost:8000/api/upload-video/
+
+```
