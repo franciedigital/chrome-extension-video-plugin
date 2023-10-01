@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile
+from fastapi.middleware.cors import CORSMiddleware  # Import the CORSMiddleware
 import boto3
 from botocore.exceptions import NoCredentialsError
 from decouple import config
@@ -12,6 +13,18 @@ s3_bucket = config("S3_BUCKET_NAME")
 
 # Initialize an S3 client
 s3 = boto3.client('s3', aws_access_key_id=aws_access_key, aws_secret_access_key=aws_secret_key)
+
+# Define CORS settings
+origins = ["*"]  # Allow all origins for demonstration purposes; restrict it to specific origins in production.
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def index():
