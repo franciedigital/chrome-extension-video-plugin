@@ -19,17 +19,17 @@ s3 = boto3.client(
     aws_secret_access_key=aws_secret_key
 )
 
-# # Define CORS settings
-# origins = ["*"]
+# Define CORS settings
+origins = ["*"]
 
-# # Add CORS middleware
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def index():
