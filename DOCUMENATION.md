@@ -76,4 +76,4 @@ This document provides an overview of the API endpoints, request and response mo
 ### Check API Status
 
 ```bash
-curl -X GET https://your-api-url/
+curl -X POST -F "file=@path/to/video.mp4" http://localhost:8000/api/upload-video/
