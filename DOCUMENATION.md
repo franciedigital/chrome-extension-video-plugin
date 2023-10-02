@@ -77,3 +77,7 @@ This document provides an overview of the API endpoints, request and response mo
 
 ```bash
 curl -X POST -F "file=@path/to/video.mp4" http://localhost:8000/api/upload-video/
+```
+
+### Live endpoint
+curl -X POST -F "file=@path/to/video.mp4" https://hng-chrome-extension.onrender.com/api/upload-video/

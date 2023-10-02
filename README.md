@@ -61,4 +61,7 @@ Example cURL request:
 ```
 curl -X POST -F "file=@path/to/video.mp4" http://localhost:8000/api/upload-video/
 
+curl -X POST -F "file=@path/to/video.mp4" https://hng-chrome-extension.onrender.com/api/upload-video/
+
+
 ```
